@@ -11,7 +11,7 @@ pc () {
 pc-reset () {
     for ii in "${!pc_@}"; do unset $ii; done
     export pc_pathcolor=Green
-    export pc_err=yes
+    export pc_err=
     export pc_init=yes
     export pc_short=
     export pc_blank=
