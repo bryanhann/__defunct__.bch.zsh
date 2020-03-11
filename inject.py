@@ -11,24 +11,42 @@ Injection appends lines to the end and removes any
 previous injection.
 """
 
+def main():
+    inject( HOME+"/.profile" , PROFILE_VIRUS )
+    inject( HOME+"/.bashrc" , BASHRC_VIRUS )
+
+BASH_USUAL=".config/bash.usual"
+PROFILE_NAME="profile"
+BASHRC_NAME="bashrc"
+
 import os
 import sys
 from os.path import realpath, abspath, relpath, dirname
+from argparse import ArgumentParser
 
+parser=ArgumentParser()
+parser.add_argument( "--usual", help="install to the usual location location", action="store_true" )
+parser.add_argument( "--this", help="install to this location location", action="store_true" )
+parser.add_argument( "--path", help="install to specified path", action="store" )
+opt=parser.parse_args()
 HOME=os.environ['HOME']
-HERE_ABS=dirname(abspath(realpath(sys.argv[0])))
-HERE="~/%s" % relpath( HERE_ABS, HOME )
+
+if   opt.this:  HERE=relpath(dirname(abspath(realpath(sys.argv[0]))),HOME)
+elif opt.usual: HERE=BASH_USUAL
+elif opt.path:  HERE=opt.path
+else:           exit( 'an option must be chosen' )
+HERE= "~/%s" % HERE
+
 MAGIC="# 834765q784q3"
 URL="https://github.com/bryanhann/config.bash.git"
 NIL=""
 EOL="\n"
 SPACE=' '
-PROFILE_NAME="profile"
-BASHRC_NAME="bashrc"
 
 BASHRC_VIRUS=f"""
     source {HERE}/{BASHRC_NAME} {HERE}
 """.format( HERE=HERE, BASHRC_NAME=BASHRC_NAME  )
+
 PROFILE_VIRUS=f"""
     [ -d {HERE} ] || git clone {URL} {HERE}
     source {HERE}/{PROFILE_NAME} {HERE}
@@ -45,7 +63,6 @@ def inject( fname, virus ):
     with open(fname, 'a') as fd: fd.write( magic(virus) )
 
 if __name__=='__main__':
-    inject( HOME+"/.profile" , PROFILE_VIRUS )
-    inject( HOME+"/.bashrc" , BASHRC_VIRUS )
+    main()
 
 
