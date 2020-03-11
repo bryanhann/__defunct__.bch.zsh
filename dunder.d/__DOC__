@@ -1,0 +1,25 @@
+#===============================================================
+# Suppose we want to internally document a function in a
+# way that can be inspected at runtime. We do this with the
+# function '__DOC__'.
+#
+#     function foo {
+#         __DOC__ 'foo() -> bar'
+#         ....
+#
+# We can later review this by grepping the environment:
+#
+#     set | grep __DOC__
+#
+# Note that while the function itself does nothing, by
+# prepending it to a line of documentation that line
+# is registered in the environment.
+#
+# TODO (maybe): implement intelligent registration
+#
+
+function __DOC__ {
+    # Do nothing but consume its arguments
+    #
+    true
+}

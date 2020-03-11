@@ -1,0 +1,23 @@
+function pc-help {
+cat <<HERE
+echo usage: 
+    pc [option] key [value]
+    
+If value is given, set key to that value. 
+Otherwise set key to the empty string.
+
+Some keys are binary flags, e.g.
+    pc err *anystring*   -- sets the err flag to true
+    pc err               -- sets the err flag to false 
+
+Some keys have multiple settings, e.g.
+    pc pathcolor Green   -- sets pathcolor to green
+    pc pathcolor Red     -- sets pathcolor to red
+    pc pathcolor         -- unset pathcolor
+    
+OPTIONS
+    -h help message
+    -r reset values
+    -l list values
+HERE
+}

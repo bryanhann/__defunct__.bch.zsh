@@ -1,0 +1,30 @@
+
+
+function gpip    {
+    __DOC__ 'gpip ->  force pip'
+    PIP_REQUIRE_VIRTUALENV="" pip "$@";
+}
+function cfg     {
+    __DOC__ 'cfg --> pushd to the bash conf'
+    pushd ~/.config/bash; }
+
+function sg      {
+    __DOC__ 'sg -- pipe set through a grep'
+    set | grep $1 ; }
+
+function bhpip    {
+    __DOC__ 'bhpip --> pip with cache'
+    pip --cache-dir ${PIP_DOWNLOAD_CACHE} $* ; }
+
+function clean {
+    __DOC__ 'clean -- clean up current folder'
+    rm -rf __pycache_ 2> /dev/null
+    rm *.pyc         2> /dev/null
+    rm .pytest_cache 2> /dev/null
+}
+
+function bh_install_vim_runtime {
+    __DOC__ 'bh_install_vim_runtime --> install'
+    git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+    sh ~/.vim_runtime/install_awesome_vimrc.sh
+}

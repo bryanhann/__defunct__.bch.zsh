@@ -1,0 +1,20 @@
+__source__ $(dirname $1)/help
+pc () {
+    if    [ "${1}" == ""   ]; then pc-help
+    elif  [ "${1}" == "-h" ]; then pc-help
+    elif  [ "${1}" == "-r" ]; then pc-reset
+    elif  [ "${1}" == "-l" ]; then set | grep ^pc_
+    elif  [ ! -z "$1"      ]; then export pc_$1=$2
+    fi
+}
+
+pc-reset () {
+    for ii in "${!pc_@}"; do unset $ii; done
+    export pc_pathcolor=Green
+    export pc_err=yes
+    export pc_init=yes
+    export pc_short=
+    export pc_blank=
+    export pc_nl=         # set to move $ below the text
+}
+
