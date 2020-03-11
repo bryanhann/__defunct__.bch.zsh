@@ -1,5 +1,5 @@
 if [ -f $1/bashrc ]; 
-    then here=$1/bashrc
+    then here=$1
     else here=~/.config/bash
 fi
 
