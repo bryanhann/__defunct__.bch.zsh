@@ -6,7 +6,7 @@ function gpip    {
 }
 function cfg     {
     __DOC__ 'cfg --> pushd to the bash conf'
-    pushd ~/.config/bash; }
+    pushd ~/.config/bash.usual; }
 
 function sg      {
     __DOC__ 'sg -- pipe set through a grep'
