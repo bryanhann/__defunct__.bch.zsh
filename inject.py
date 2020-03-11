@@ -12,40 +12,40 @@ previous injection.
 """
 
 import os
+import sys
+from os.path import realpath, abspath, relpath, dirname
 
-MAGIC='834765q784q3'
 HOME=os.environ['HOME']
+HERE_ABS=dirname(abspath(realpath(sys.argv[0])))
+HERE="~/%s" % relpath( HERE_ABS, HOME )
+MAGIC="# 834765q784q3"
+URL="https://github.com/bryanhann/config.bash.git"
+NIL=""
+EOL="\n"
+SPACE=' '
+PROFILE_NAME="profile"
+BASHRC_NAME="bashrc"
 
-BASHRC="""
-    source ~/.config/bash/bashrc
-"""
+BASHRC_VIRUS=f"""
+    source {HERE}/{BASHRC_NAME} {HERE}
+""".format( HERE=HERE, BASHRC_NAME=BASHRC_NAME  )
+PROFILE_VIRUS=f"""
+    [ -d {HERE} ] || git clone {URL} {HERE}
+    source {HERE}/{PROFILE_NAME} {HERE}
+""".format( HERE=HERE, PROFILE=PROFILE_NAME, URL=URL  )
 
-PROFILE="""
-    [ -d ~/.config/bash/profile ] || git clone https://github.com/bryanhann/config.bash.git ~/.config/bash
-    source ${HOME}/.config/bash/profile
-"""
-
-def magic(line): return '%s # %s\n' % (line,MAGIC)
-def notmagical(line): return not MAGIC in line
-def strip(line): return line.strip()
+def clear( fname ):
+    def keep(line): return not MAGIC in line
+    with open(fname, 'r') as fd: new = NIL.join(filter(keep,fd.readlines()))
+    with open(fname, 'w') as fd: fd.write(new)
 
 def inject( fname, virus ):
-    virus = virus.split('\n')
-    virus = map( strip, virus  )
-    virus = filter( None, virus )
-    virus = map( magic, virus  )
-    with open(fname) as fd:
-        old=fd.readlines()
-        old = filter(notmagical,old)
-        new = old + virus
-        new = ''.join( new )
-    with open(fname, 'w' ) as fd:
-        fd.write(new)
+    magic = lambda virus : NIL.join([ xx + SPACE + MAGIC + EOL for xx in virus.split(EOL)  ])
+    clear( fname )
+    with open(fname, 'a') as fd: fd.write( magic(virus) )
 
 if __name__=='__main__':
-    profile = HOME + '/.profile'
-    bashrc  = HOME + '/.bashrc'
-    inject( bashrc, BASHRC )
-    inject( profile, PROFILE )
+    inject( HOME+"/.profile" , PROFILE_VIRUS )
+    inject( HOME+"/.bashrc" , BASHRC_VIRUS )
 
 
