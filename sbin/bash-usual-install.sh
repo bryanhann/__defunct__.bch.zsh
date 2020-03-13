@@ -2,7 +2,7 @@
 # Definitions.
 
 SRC=https://github.com/bryanhann/config.bash.usual
-DST=~/.config/bch.bash.usual
+DST=~/.config/bch.bash
 
 
 #-------------------------------------------------------------------------------------
