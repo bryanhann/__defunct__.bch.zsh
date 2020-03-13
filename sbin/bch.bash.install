@@ -1,7 +1,7 @@
 #-------------------------------------------------------------------------------------
 # Definitions.
 
-SRC=https://github.com/bryanhann/config.bash.usual
+SRC=https://github.com/bryanhann/bch.bash
 DST=~/.config/bch.bash
 
 
