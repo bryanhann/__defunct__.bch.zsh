@@ -1,7 +1,17 @@
+if [ "$1" == "" ]; then
+    echo
+    echo "usage: $0 <SRC>"
+    echo "    1) git clone <SRC> ~/.config/bch.shell"
+    echo "    2) change ~/.profile to source the clone"
+    echo "    3) change ~/.bashrc to source the clone"
+    echo
+    exit
+fi
+
 #-------------------------------------------------------------------------------------
 # Definitions.
 
-SRC=https://github.com/bryanhann/bch.bash
+SRC=$1
 DST=~/.config/bch.shell
 
 
