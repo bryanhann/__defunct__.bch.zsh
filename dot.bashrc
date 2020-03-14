@@ -18,14 +18,18 @@ __source__ ${BB}/misc.d/pip
 __source__ ${BB}/misc.d/misc
 __source__ ${BB}/prompt.d/prompt
 
-$HERE/venv.sh $VV
-echo "Activating virtual environment."
+
+if [ ! -d ${VV} ]; then
+    python3 -m venv ${VV}
+    source ${VV}/bin/activate
+    pip install --upgrade pip
+    pip install virtualenv
+    pip install virtualenvwrapper
+fi
+export PROJECT_HOME=~/dev
 source ${VV}/bin/activate
 source virtualenvwrapper.sh
+function wpy { echo $(python -c "import sys;print(sys.executable)"); }
+echo ACTIVE PYTHON IS: $(wpy)
 
-that=~/.local/.config/bash
-
-if [ -f ${that} ];
-    then __source__ ${that}
-fi
 
