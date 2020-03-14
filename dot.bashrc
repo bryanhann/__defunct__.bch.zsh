@@ -1,18 +1,22 @@
-# XXX This is deliberately hardcoded to simplify code.
-here=~/.config/bch.shell/bash
+# XXX HERE is deliberately hardcoded to simplify code.
 
-source ${here}/dunder.d/__link__
-source ${here}/dunder.d/__source__
-source ${here}/dunder.d/__DOC__
+HERE=~/.config/bch.shell
 
-__source__ ${here}/misc.d/nesting
-__source__ ${here}/misc.d/colors
-__source__ ${here}/misc.d/rxx
-__source__ ${here}/misc.d/watch
-__source__ ${here}/misc.d/XDG
-__source__ ${here}/misc.d/pip
-__source__ ${here}/misc.d/misc
-__source__ ${here}/prompt.d/prompt
+PP=${HERE}/posix
+BB=${HERE}/bash
+
+source ${PP}/dunder.d/__link__
+source ${PP}/dunder.d/__source__
+source ${PP}/dunder.d/__DOC__
+
+__source__ ${BB}/misc.d/nesting
+__source__ ${BB}/misc.d/colors
+__source__ ${BB}/misc.d/rxx
+__source__ ${BB}/misc.d/watch
+__source__ ${BB}/misc.d/XDG
+__source__ ${BB}/misc.d/pip
+__source__ ${BB}/misc.d/misc
+__source__ ${BB}/prompt.d/prompt
 
 that=~/.local/.config/bash
 
