@@ -1,5 +1,5 @@
 # XXX This is deliberately hardcoded to simplify code.
-here=~/.config/bch.shell
+here=~/.config/bch.shell/bash
 
 source ${here}/dunder.d/__link__
 source ${here}/dunder.d/__source__
