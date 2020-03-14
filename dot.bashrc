@@ -4,7 +4,6 @@ HERE=~/.config/bch.shell
 
 PP=${HERE}/posix
 BB=${HERE}/bash
-VV=${HERE}/__VENV__
 source ${PP}/dunder.d/__link__
 source ${PP}/dunder.d/__source__
 source ${PP}/dunder.d/__DOC__
@@ -18,17 +17,31 @@ __source__ ${BB}/misc.d/pip
 __source__ ${BB}/misc.d/misc
 __source__ ${BB}/prompt.d/prompt
 
+#------------------------------------------------------------------------
+# Install, configure, and activate the default python virtual environment
+#
 
-if [ ! -d ${VV} ]; then
-    python3 -m venv ${VV}
-    source ${VV}/bin/activate
+__VENV__=${HERE}/__VENV__
+
+if [ -d ${__VENV__} ]; then
+    source ${__VENV__}/bin/activate
+else
+    python3 -m venv ${__VENV__}
+    source ${__VENV__}/bin/activate
     pip install --upgrade pip
     pip install virtualenv
     pip install virtualenvwrapper
 fi
+
+#------------------------------------------------------------------------
+# Prepare and activate virtualenvwrapper
+#
 export PROJECT_HOME=~/dev
-source ${VV}/bin/activate
 source virtualenvwrapper.sh
+
+#------------------------------------------------------------------------
+#Show the user which python is active
+#
 function wpy { echo $(python -c "import sys;print(sys.executable)"); }
 echo ACTIVE PYTHON IS: $(wpy)
 
