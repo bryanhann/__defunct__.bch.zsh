@@ -1,4 +1,7 @@
 
+function wpy { 
+    echo $(python -c "import sys;print(sys.executable)"); 
+}
 
 function gpip    {
     __DOC__ 'gpip ->  force pip'

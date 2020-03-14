@@ -33,5 +33,4 @@ source virtualenvwrapper.sh
 #--------------------------------------------------------------------------
 # Show the user which python is active
 #--------------------------------------------------------------------------
-function wpy { echo $(python -c "import sys;print(sys.executable)"); }
 echo ACTIVE PYTHON IS: $(wpy)
