@@ -31,6 +31,7 @@ export PROJECT_HOME=~/dev
 source virtualenvwrapper.sh
 
 #--------------------------------------------------------------------------
-# Show the user which python is active
+# Inform the user of some stuff
 #--------------------------------------------------------------------------
 echo ACTIVE PYTHON IS: $(wpy)
+echo $(pc)

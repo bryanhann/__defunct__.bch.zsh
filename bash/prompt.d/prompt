@@ -46,6 +46,3 @@ my_prompt_command () {
 export PROMPT_COMMAND=my_prompt_command
 
 pc -r
-echo
-echo  For runtime prompt configuration info type 'pc -h'
-echo
