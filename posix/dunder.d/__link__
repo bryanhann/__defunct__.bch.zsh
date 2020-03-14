@@ -1,6 +1,0 @@
-
-function __link__ { 
-    if [ ! -e ${HOME}/.$1 ];
-        then ln -s ${HOME}/.config/$1 ${HOME}/.$1 
-    fi
-    }
