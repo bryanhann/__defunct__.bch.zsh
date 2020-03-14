@@ -1,7 +1,5 @@
-if [ -f $1/bashrc ]; 
-    then here=$1
-    else here=~/.config/bash
-fi
+# XXX This is deliberately hardcoded to simplify code.
+here=~/.config/bch.shell
 
 source ${here}/dunder.d/__link__
 source ${here}/dunder.d/__source__
