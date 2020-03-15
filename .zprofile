@@ -1,3 +1,4 @@
+export __BCHSHELL__=~/.config/bch.shell
 echo "________________ .zprofile ________________"
 # IF OMZSH has not been constructed. We wll contend with other processes for
 # the right to construction by testing the fWAIT flag and raising it if
