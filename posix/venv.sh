@@ -1,5 +1,5 @@
 
-VENV=${BCH_SHELL}/__VENV__
+VENV=${__BCHSHELL__}/__VENV__
 if [ -d ${VENV} ]; then
     source ${VENV}/bin/activate
 else
