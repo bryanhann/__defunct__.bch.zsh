@@ -10,6 +10,7 @@ export  ZSH=${__ZSH__}/omzsh             # This is where Oh-My-ZSH will be clone
 URL=https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 fWAIT=${__ZSH__}/__fwait # OMZSH is currently under construction.
 fREADY=${ZSH}/__fready  # OMZSH has been consructed,
+SCRIPTNAME=$(basename $0)
 
 _install () {
     tSCRIPT=/tmp/$RANDOM.$RANDOM.sh
@@ -24,7 +25,7 @@ _install () {
     return 0
 }
 _wait () {
-    echo -n Waiting for OMZSH to install...
+    echo -n $SCRIPTNAME: Waiting for OMZSH to install...
     while [ ! -f ${fREADY} ]; do sleep 1; echo -n .;  done
     echo
 }
