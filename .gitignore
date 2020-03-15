@@ -1,6 +1,7 @@
+?
+__ZSH__
 __VENV__
 __venv__
 __pycaache__
 *.pyc
-?
-__ZSH__
+.zcompdump*
