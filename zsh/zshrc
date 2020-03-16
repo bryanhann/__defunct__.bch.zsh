@@ -17,7 +17,8 @@
 #ZSH_THEME="muse" #light
 #ZSH_THEME="agnoster" #
 #ZSH_THEME="fino-time" #
-ZSH_THEME="gnzh" # very good two liner. Very clear full cwd.
+ZSH_THEME="gnzh" # based on bira. very good two liner. Very clear full cwd.
+#ZSH_THEME="bira" # i
 #ZSH_THEME="random"
 
 # Set list of themes to pick from when loading at random
@@ -78,7 +79,7 @@ ZSH_THEME="gnzh" # very good two liner. Very clear full cwd.
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git virtualenv virtualenvwrapper)
 
 source $ZSH/oh-my-zsh.sh
 
