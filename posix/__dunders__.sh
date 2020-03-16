@@ -97,10 +97,10 @@ __tryinstall__ () {
     local FUNC=${3}
     local DONE=${2}.ready
     local WAIT=${2}.wait
-    local raise_DONE  () { touch ${DONE}; return 0; }
-    local lower_WAIT  () { rmdir ${WAIT}; return 0; }
-    local raise_WAIT  () { mkdir ${WAIT} 2> /dev/null && return 0 || return 1;  }     # plant the fWAIT flag
-    local SUSPEND     () { echo WAITING FOR ${NAME} TO INSTALL; while [ ! -f ${DONE} ]; do sleep 1;echo -n .;done;echo; }
+    raise_DONE  () { touch ${DONE}; return 0; }
+    lower_WAIT  () { rmdir ${WAIT}; return 0; }
+    raise_WAIT  () { mkdir ${WAIT} 2> /dev/null && return 0 || return 1;  }     # plant the fWAIT flag
+    SUSPEND     () { echo WAITING FOR ${NAME} TO INSTALL; while [ ! -f ${DONE} ]; do sleep 1;echo -n .;done;echo; }
 
     [ -f ${DONE}  ] && return
     raise_WAIT && echo INSTALLING ${NAME} && ${FUNC} && raise_DONE && lower_WAIT  || SUSPEND
