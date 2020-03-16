@@ -61,3 +61,47 @@ __link__ () { [ -e ~/.$1 ] || ln -s ~/.config/$1 ~/.$1 ; }
 __DOC__ () { true ; }
 
 
+#===============================================================
+# Sometimes we need to source an infrastructure before moving on in
+# our process. If the infracture is not there we must install it. But
+# we wish to avoid race conditions with other processes doing the same
+# thing.
+#
+# The client passes us an installation script along with two flags which
+# we will name
+#
+#     ${fREADY}
+#     ${fWAIT}
+#
+# If ${fREADY} is up we return directly to the caller.
+#
+# Otherwise we assume that the infrastructure does not exist. We
+# ATTEMPT to raise ${fWAIT} as a signal to other procesees that a
+# construction is in processes and that they should not interfere.
+#
+# If our attempt FAILS we assume the infrastructure is being created
+# by another process. We enter a SUSPEND state and wait for ${fREADY}
+# to be raised, and then return directly to the caller.
+#
+# If our attempt SUCCEEDS then we construct the infrastructure by
+# invoking ${constucture}. When ${constructure} returns we raise
+# ${fREADY}, lower ${fWAIT}, and return control to the caller.
+#
+# XXX This is fragile in practice. Be careful with your choice of
+# flags. The danger of an infinite SUSPEND loop exists if there
+# was an earlier incomplete construction.
+# of trying to create a folder.
+
+__tryinstall__ () {
+    local NAME=${1}
+    local FUNC=${3}
+    local DONE=${2}.ready
+    local WAIT=${2}.wait
+    local raise_DONE  () { touch ${DONE}; return 0; }
+    local lower_WAIT  () { rmdir ${WAIT}; return 0; }
+    local raise_WAIT  () { mkdir ${WAIT} 2> /dev/null && return 0 || return 1;  }     # plant the fWAIT flag
+    local SUSPEND     () { echo WAITING FOR ${NAME} TO INSTALL; while [ ! -f ${DONE} ]; do sleep 1;echo -n .;done;echo; }
+
+    [ -f ${DONE}  ] && return
+    raise_WAIT && echo INSTALLING ${NAME} && ${FUNC} && raise_DONE && lower_WAIT  || SUSPEND
+}
