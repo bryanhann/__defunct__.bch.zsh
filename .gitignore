@@ -5,3 +5,4 @@ __venv__
 __pycaache__
 *.pyc
 .zcompdump*
+.3
