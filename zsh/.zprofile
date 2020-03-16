@@ -1,7 +1,15 @@
-export PATH=$PATH:~/.local/bin
-export __BCHSHELL__=~/.config/bch.shell
-export  __ZSH__=${__BCHSHELL__}/.Z #__ZSH__  # This is where various zsh stuff will be stuffed
-export  ZDOTDIR=${__BCHSHELL__}/zsh          # This is where .zshrc is to be found
-export  ZSH=${__ZSH__}/omzsh             # This is where Oh-My-ZSH will be cloned
+#
+# This file is not sourced direcly by zsh, and so we can determine what folder we
+# are in by examining the value of [$*].
+#
+# We expect normally to be called directly by [~/.zprofile] which will do nothing
+# other than transfer control to us. We, in turn, will transfer control to the 
+# more visible "zprofile"" in our directory.
+#
+# Compare with [./.zshrc] in our folder which does not do this.
+#
+# NOTE: The line "source path/to/this/.zprofile" (with 'path/to/this/' appropriately
+# modifies) MUST appear in the [~/.zprofile] file. Ideally it should be the only line.
+#
+source $(dirname $0)/zprofile
 
-source ${ZDOTDIR}/zprofile.omzsh
