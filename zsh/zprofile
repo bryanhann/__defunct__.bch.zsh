@@ -2,6 +2,6 @@ export ZDOTDIR=$(dirname $0)
 export __BCHSHELL__=$(dirname $(dirname $0))
 export __ZSH__=${__BCHSHELL__}/.Z
 export ZSH=${__ZSH__}/omzsh
-source $(dirname $0)/zprofile.omzsh
+
 export PATH=$PATH:~/.local/bin
 

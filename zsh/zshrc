@@ -1,9 +1,8 @@
-root=$(dirname $(dirname $0))
-source ${root}/posix/__dunders__
+source ${__BCHSHELL__}/posix/__dunders__.sh
+__source__ ${__BCHSHELL__}/posix/misc
+__source__ ${__BCHSHELL__}/posix/init/venv.sh
+__source__ ${__BCHSHELL__}/zsh/init/omzsh.sh
+__source__ ${__BCHSHELL__}/zsh/main.sh
 
-__source__ ${root}/posix/venv.sh
-__source__ ${root}/posix/misc
-#__source__ $(dirname $0)/zprofile.omzsh
-__source__ $(dirname $0)/zshrc.main
-
-compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
+export PROJECT_HOME=~/dev
+source virtualenvwrapper.sh
