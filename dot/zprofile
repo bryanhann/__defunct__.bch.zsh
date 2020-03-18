@@ -1,7 +1,0 @@
-export ZDOTDIR=$(dirname $0)
-export __BCHSHELL__=$(dirname $(dirname $0))
-export __ZSH__=${__BCHSHELL__}/.Z
-export ZSH=${__ZSH__}/omzsh
-
-export PATH=$PATH:~/.local/bin
-

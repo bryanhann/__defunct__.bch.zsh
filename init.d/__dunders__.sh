@@ -93,6 +93,7 @@ __DOC__ () { true ; }
 # of trying to create a folder.
 
 __tryinstall__ () {
+    mkdir -p ${BCH_SHELL_BUILD_DIR}
     local NAME=${1}
     local FUNC=${3}
     local DONE=${2}.ready

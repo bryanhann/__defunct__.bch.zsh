@@ -9,9 +9,7 @@ install_omzsh () {
     rm ${tSCRIPT}
 }
 
-local ZZ=${__ZSH__}.omzsh
-mkdir ${__ZSH__} 2> /dev/null
-__tryinstall__ Oh-My-ZSH ${ZZ} install_omzsh
+__tryinstall__ Oh-My-ZSH ${ZSH} install_omzsh
 
 
 
