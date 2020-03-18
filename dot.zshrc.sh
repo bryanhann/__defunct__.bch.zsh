@@ -7,3 +7,6 @@ __source__ $(dirname $0)/posix.d/misc
 export PROJECT_HOME=~/dev
 VIRTUALENVWRAPPER_HOOK_DIR=$(dirname $0)/hooks/virtualenv
 source virtualenvwrapper.sh
+
+#BCH_PROMPT is needed by [./hooks/virtualenv/postactivate].
+BCH_PROMPT=$PROMPT
