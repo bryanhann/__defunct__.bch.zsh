@@ -5,4 +5,5 @@ __source__ $(dirname $0)/zsh.d/main.sh
 __source__ $(dirname $0)/posix.d/misc
 
 export PROJECT_HOME=~/dev
+VIRTUALENVWRAPPER_HOOK_DIR=$(dirname $0)/hooks/virtualenv
 source virtualenvwrapper.sh
