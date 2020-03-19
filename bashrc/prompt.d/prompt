@@ -1,5 +1,5 @@
-__source__ $(dirname $1)/vendor.d/git-prompt
-__source__ $(dirname $1)/pc.d/pc
+source $(dirname $0)/vendor.d/git-prompt
+source $(dirname $0)/pc.d/pc
 
 function wide4e {
     echo $(printf "%03.0f" $1)
