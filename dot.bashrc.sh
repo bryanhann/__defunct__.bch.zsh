@@ -1,5 +1,6 @@
-source     $(dirname $0)/init.d/__dunders__.sh
-__source__ $(dirname $0)/init.d/venv.sh
-__source__ $(dirname $0)/posix.d/misc
-__source__ $(dirname $0)/bash.d/prompt.d/prompt
+source     $(dirname $0)/__constants__
+source ${BCH_SHELL_VENV}/bin/activate
+source virtualenvwrapper.sh
+__source__ $(dirname $0)/misc.sh
+__source__ $(dirname $0)/bashrc/prompt.d/prompt
 echo $(pc)

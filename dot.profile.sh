@@ -1,2 +1,2 @@
-source $(dirname $0)/common.profile.sh
+source $(dirname $0)/__constants__
 source ~/.bashrc

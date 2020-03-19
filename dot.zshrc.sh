@@ -1,12 +1,9 @@
-source     $(dirname $0)/init.d/__dunders__.sh
-__source__ $(dirname $0)/init.d/venv.sh
-__source__ $(dirname $0)/init.d/omzsh.sh
-__source__ $(dirname $0)/zsh.d/main.sh
-__source__ $(dirname $0)/posix.d/misc
-
-export PROJECT_HOME=~/dev
-VIRTUALENVWRAPPER_HOOK_DIR=$(dirname $0)/hooks/virtualenv
+source  $(dirname $0)/__constants__
+source ${BCH_SHELL_VENV}/bin/activate
 source virtualenvwrapper.sh
+source $(__root__)/misc.sh
 
-#BCH_PROMPT is needed by [./hooks/virtualenv/postactivate].
-BCH_PROMPT=$PROMPT
+#### OMZSH
+    source $(__root__)/main.zshrc.sh
+    BCH_PROMPT=$PROMPT     #This is needed by [./hooks/virtualenv/postactivate].
+

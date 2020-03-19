@@ -1,7 +1,0 @@
-__source__ $( dirname ${1} )/misc.d/nesting
-__source__ $( dirname ${1} )/misc.d/colors
-__source__ $( dirname ${1} )/misc.d/rxx
-__source__ $( dirname ${1} )/misc.d/watch
-__source__ $( dirname ${1} )/misc.d/XDG
-__source__ $( dirname ${1} )/misc.d/pip
-__source__ $( dirname ${1} )/misc.d/misc

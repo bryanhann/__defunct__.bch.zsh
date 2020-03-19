@@ -1,3 +1,7 @@
+B="__root__ () { echo $(dirname $(grealpath $0)) ; }"
+eval "$B"
+
+
 ################################################################
 # These dunder functions serve all other sourced functions
 # and so this file must be sourced FIRST.
@@ -93,7 +97,6 @@ __DOC__ () { true ; }
 # of trying to create a folder.
 
 __tryinstall__ () {
-    mkdir -p ${BCH_SHELL_BUILD_DIR}
     local NAME=${1}
     local FUNC=${3}
     local DONE=${2}.ready
@@ -105,4 +108,12 @@ __tryinstall__ () {
 
     [ -f ${DONE}  ] && return
     raise_WAIT && echo INSTALLING ${NAME} && ${FUNC} && raise_DONE && lower_WAIT  || SUSPEND
+}
+
+
+
+
+__export__ () {
+    # A convenience function to allow prettier exports. It affords white space.
+    export $1=$2
 }
