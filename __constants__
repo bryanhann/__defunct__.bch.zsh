@@ -2,7 +2,7 @@ source $(dirname $0)/__dunders__
 
 export BCH_SHELL_DIR=$(__root__)
 export BCH_SHELL_BLD=$(__root__)/.B
-export BCH_SHELL_VENV=${BCH_SHELL_BLD}/venv
+export BCH_SHELL_VENV=${BCH_SHELL_BLD}/3
 export PROJECT_HOME=~/dev
 export VIRTUALENVWRAPPER_HOOK_DIR=$(__root__)/hooks/virtualenv
 
