@@ -3,7 +3,7 @@
 ##################################################################
     X="__root__(){echo $(dirname $(grealpath $0));}";eval "$X"
     source ~/.local/bch/dunders/dunders.sh
-    source $(dirname $0)/__constants__.sh
+    source $(dirname $0)/constants.sh
 
 #---------------------------------------------------------
 # Create vital directories

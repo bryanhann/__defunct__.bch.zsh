@@ -3,7 +3,7 @@
 ##################################################################
     X="__root__(){echo $(dirname $(grealpath $0));}";eval "$X"
     source ~/.local/bch/dunders/dunders.sh
-    source $(__root__)/__constants__.sh
+    source $(__root__)/constants.sh
 
 #---------------------------------------------------------
 # VENV

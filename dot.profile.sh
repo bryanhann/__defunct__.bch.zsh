@@ -7,7 +7,7 @@
 # Source this first.
 #---------------------------------------------------------
     source ~/.local/bch/dunders/dunders.sh
-    source $(__root__)/__constants__.sh ${1}
+    source $(__root__)/constants.sh
 
 #---------------------------------------------------------
 # Source ~/.bashrc
