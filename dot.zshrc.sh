@@ -2,7 +2,7 @@
 #   dot.zshrc
 ##################################################################
     X="__root__(){echo $(dirname $(grealpath $0));}";eval "$X"
-    source $(__root__)/__dunders__.sh
+    source ~/.local/bch/dunders/dunders.sh
     source $(__root__)/__constants__.sh
 
 #---------------------------------------------------------

@@ -2,7 +2,7 @@
 #   dot.zprofile
 ##################################################################
     X="__root__(){echo $(dirname $(grealpath $0));}";eval "$X"
-    source $(dirname $0)/__dunders__.sh
+    source ~/.local/bch/dunders/dunders.sh
     source $(dirname $0)/__constants__.sh
 
 #---------------------------------------------------------
