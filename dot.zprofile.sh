@@ -2,6 +2,11 @@ source $(dirname $0)/__constants__.sh
 
 export PATH=$PATH:~/.local/bin
 
+
+[ -d ${BCH_SHELL_BLD} ] || mkdir ${BCH_SHELL_BLD}
+[ -d ${ZDOTDIR}       ] || mkdir ${ZDOTDIR}
+__link__ pip
+
 #### INSTALL PYTHON 3 VIRTUAL ENVIRONMENT
     install_venv () {
         python3 -m venv ${BCH_SHELL_VENV}
