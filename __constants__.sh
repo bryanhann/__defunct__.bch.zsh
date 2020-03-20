@@ -1,4 +1,3 @@
-source $(dirname $0)/__dunders__.sh
 
 export XDG_CONFIG_HOME=${HOME}/.config
 export XDG_CACHE_HOME=${HOME}/.cache

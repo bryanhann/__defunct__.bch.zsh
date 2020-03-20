@@ -1,7 +1,3 @@
-B="__root__ () { echo $(dirname $(grealpath $0)) ; }"
-eval "$B"
-
-
 ################################################################
 # These dunder functions serve all other sourced functions
 # and so this file must be sourced FIRST.

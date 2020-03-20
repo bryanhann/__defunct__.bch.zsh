@@ -1,5 +1,5 @@
-source $(dirname $0)/vendor.d/git-prompt
-source $(dirname $0)/pc.d/pc
+source $(__root__)/bash.prompt/vendor/git-prompt
+source $(__root__)/bash.prompt/pc/pc.sh
 
 function wide4e {
     echo $(printf "%03.0f" $1)
@@ -20,16 +20,16 @@ function colored4c4s {
 
 my_prompt_command () {
     err=$?
-    
+
     # set error info
     E=$( wide4e    ${err}      )
     E=$( color4e4E ${err} ${E} )
     [ -z "${pc_err}" ] && unset E
-    
+
     # set depth info
     D="$mybash_nesting_depth"
     D="[$D]"
-    
+
     # set path info
     P="\w"
     P=$(colored4c4s ${!pc_pathcolor} $P )
@@ -38,7 +38,7 @@ my_prompt_command () {
     PS1=
     PS1+="${D}"
     PS1+="${E}"
-    PS1+=" ${P}" 
+    PS1+=" ${P}"
     PS1+="$(__git_ps1)"
     PS1+=" $ "
 }

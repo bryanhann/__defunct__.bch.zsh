@@ -1,17 +1,29 @@
-source  $(dirname $0)/__constants__.sh
+##################################################################
+#   dot.zshrc
+##################################################################
+    X="__root__(){echo $(dirname $(grealpath $0));}";eval "$X"
+    source $(__root__)/__dunders__.sh
+    source $(__root__)/__constants__.sh
 
-#### We assume that .zprofile has initiated VENV
+#---------------------------------------------------------
+# VENV
+#---------------------------------------------------------
+    __link__ pip
+    source $(__root__)/install.venv.sh
     source ${BCH_SHELL_VENV}/bin/activate
     source virtualenvwrapper.sh
 
-
-#### OMZSH
+#---------------------------------------------------------
+# OMZSH
+#---------------------------------------------------------
+    source $(__root__)/install.omzsh.sh
     source $(__root__)/zshrc.omzsh.sh
     BCH_PROMPT=$PROMPT     #This is needed by [./hooks/virtualenv/postactivate].
 
+#---------------------------------------------------------
+# MISC
+#---------------------------------------------------------
+    source $(__root__)/misc.colors.sh
+    source $(__root__)/misc.rxx.sh
+    source $(__root__)/misc.misc.sh
 
-#### MISC
-    #source $(dirname $0)/misc.nesting.sh
-    source $(dirname $0)/misc.colors.sh
-    source $(dirname $0)/misc.rxx.sh
-    source $(dirname $0)/misc.misc.sh

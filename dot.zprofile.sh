@@ -1,13 +1,23 @@
-source $(dirname $0)/__constants__.sh
+##################################################################
+#   dot.zprofile
+##################################################################
+    X="__root__(){echo $(dirname $(grealpath $0));}";eval "$X"
+    source $(dirname $0)/__dunders__.sh
+    source $(dirname $0)/__constants__.sh
 
-export PATH=$PATH:~/.local/bin
+#---------------------------------------------------------
+# Create vital directories
+#---------------------------------------------------------
+    [ -d ${BCH_SHELL_BLD} ] || mkdir ${BCH_SHELL_BLD}
+    [ -d ${ZDOTDIR}       ] || mkdir ${ZDOTDIR}
 
+#---------------------------------------------------------
+# Insure that our zshrc is found
+#---------------------------------------------------------
+    echo . $(__root__)/dot.zshrc.sh > ${ZDOTDIR}/.zshrc
 
-[ -d ${BCH_SHELL_BLD} ] || mkdir ${BCH_SHELL_BLD}
-[ -d ${ZDOTDIR}       ] || mkdir ${ZDOTDIR}
-echo source ${BCH_SHELL_DIR}/dot.zshrc.sh > ${ZDOTDIR}/.zshrc``
+#---------------------------------------------------------
+# Update PATH
+#---------------------------------------------------------
+    export PATH=$PATH:~/.local/bin
 
-source $(dirname $0)/install.venv.sh
-source $(dirname $0)/install.omzsh.sh
-
-__link__ pip
