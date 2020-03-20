@@ -1,4 +1,4 @@
-source  $(dirname $0)/__constants__
+source  $(dirname $0)/__constants__.sh
 
 #### We assume that .zprofile has initiated VENV
     source ${BCH_SHELL_VENV}/bin/activate
