@@ -6,12 +6,12 @@ source  $(dirname $0)/__constants__
 
 
 #### OMZSH
-    source $(__root__)/main.zshrc.sh
+    source $(__root__)/zshrc.omzsh.sh
     BCH_PROMPT=$PROMPT     #This is needed by [./hooks/virtualenv/postactivate].
 
 
 #### MISC
-    #source $(dirname $0)/misc.d/nesting.sh
-    source $(dirname $0)/misc.d/colors.sg
-    source $(dirname $0)/misc.d/rxx.sg
-    source $(dirname $0)/misc.d/misc.sh
+    #source $(dirname $0)/misc.nesting.sh
+    source $(dirname $0)/misc.colors.sh
+    source $(dirname $0)/misc.rxx.sh
+    source $(dirname $0)/misc.misc.sh
