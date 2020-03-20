@@ -1,6 +1,6 @@
 
-function wpy { 
-    echo $(python -c "import sys;print(sys.executable)"); 
+function wpy {
+    echo $(python -c "import sys;print(sys.executable)");
 }
 
 function gpip    {
@@ -15,7 +15,7 @@ function cfg     {
 
 function sg      {
     __DOC__ 'sg -- pipe set through a grep'
-    set | grep $1 ; 
+    set | grep $1 ;
 }
 
 function bhpip    {
