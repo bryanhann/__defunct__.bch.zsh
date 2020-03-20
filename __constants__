@@ -1,5 +1,7 @@
 source $(dirname $0)/__dunders__
 
+export XDG_CONFIG_HOME=${HOME}/.config
+export XDG_CACHE_HOME=${HOME}/.cache
 export BCH_SHELL_DIR=$(__root__)
 export BCH_SHELL_BLD=$(__root__)/.B
 export BCH_SHELL_VENV=${BCH_SHELL_BLD}/3
