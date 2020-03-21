@@ -17,11 +17,4 @@
     source $(__root__)/misc.nesting.sh
     source $(__root__)/bash.prompt/prompt.sh
 
-#---------------------------------------------------------
-# VENV
-#---------------------------------------------------------
-echo 0000002
-    source ${BCH_SHELL_VENV}/bin/activate
-    source virtualenvwrapper.sh
-
 echo $(pc)

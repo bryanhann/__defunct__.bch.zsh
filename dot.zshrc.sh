@@ -5,14 +5,6 @@
     source $(__root__)/constants.sh
 
 #---------------------------------------------------------
-# VENV
-#---------------------------------------------------------
-    __link__ pip
-    source $(__root__)/install.venv.sh
-    source ${BCH_SHELL_VENV}/bin/activate
-    source virtualenvwrapper.sh
-
-#---------------------------------------------------------
 # OMZSH
 #---------------------------------------------------------
     source $(__root__)/install.omzsh.sh
