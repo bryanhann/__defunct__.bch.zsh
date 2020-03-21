@@ -2,8 +2,7 @@
 #   dot.zprofile
 ##################################################################
     X="__root__(){echo $(dirname $(grealpath $0));}";eval "$X"
-    source ~/.local/bch/dunders/dunders.sh
-    source $(__root__)/constants.sh
+    source $(dirname $0)/constants.sh
 
 #---------------------------------------------------------
 # Create vital directories

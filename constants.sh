@@ -1,17 +1,7 @@
-
-export XDG_CONFIG_HOME=${HOME}/.config
-export XDG_CACHE_HOME=${HOME}/.cache
-
-export BCH_SHELL_DIR=$(__root__)
-export BCH_SHELL_BLD=$(__root__)/.B
-export BCH_SHELL_VENV=${BCH_SHELL_BLD}/3
-
-### virtualenvwrapper
-export PROJECT_HOME=~/dev
-export VIRTUALENVWRAPPER_HOOK_DIR=$(__root__)/hooks/virtualenv
-
-export ZSH=${BCH_SHELL_BLD}/omzsh
-export ZDOTDIR=${BCH_SHELL_BLD}/zdotdir
-
-export PIP_DOWNLOAD_CACHE=${HOME}/.cache/pip
+source ~/.config/bch/constants.sh
+__export__ BCH_SHELL_DIR    $(__root__)
+__export__ BCH_SHELL_BLD    $(__root__)/.B
+__export__ BCH_SHELL_VENV   ${BCH_SHELL_BLD}/3
+__export__ ZSH      ${BCH_SHELL_BLD}/omzsh
+__export__ ZDOTDIR  ${BCH_SHELL_BLD}/zdotdir
 
